@@ -1,4 +1,7 @@
 package com.example.couplesync
+import android.annotation.SuppressLint
+import android.content.Intent
+import com.example.couplesync.AddFragment
 
 import android.graphics.Color
 import android.os.Bundle
@@ -24,14 +27,13 @@ import retrofit2.Callback
 import retrofit2.Response
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import android.widget.Button
 
 private const val TAG = "MainActivity"
-private const val API_KEY = "key here"
+private const val API_KEY = "H1XoYkdmEbtFuydLRM9D8A0cubbOJAqKL2K3KoGxIzgTKqptu_DYyefGJO_OGEh5Hso3SQZMnoxlSti-nP7zuOEuCK5DCLoMVtK-jV6VXiPj51euyN4knvbC9XIhZnYx"
 private const val BASE_URL =    "https://api.yelp.com/v3/"
-class MainActivity : AppCompatActivity(){
-    var restaurantImageURL = ""
-    var restaurantName = ""
-
+open class MainActivity : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -63,7 +65,21 @@ class MainActivity : AppCompatActivity(){
             override fun onFailure(call: Call<YelpSearchResult>, t: Throwable) {
                 Log.i(TAG, "onFailure $t")
             }
+        })
 
+        // Find the button by its ID
+        val addButton = findViewById<Button>(R.id.addButton)
+
+
+        addButton.setOnClickListener {
+            // Create an Intent to navigate to LandingActivity
+            val intent = Intent(this, Landing::class.java)
+
+            // Start the LandingActivity
+            startActivity(intent)
+        }
+    }
+}
 //        val restaurantImageView = findViewById<ImageView>(R.id.restaurantImage)
 //        val nameTextView = findViewById<TextView>(R.id.restaurantName)
 //        val thumbs_up = findViewById<ImageButton>(R.id.thumbs_up)
@@ -111,8 +127,6 @@ class MainActivity : AppCompatActivity(){
 //                }
 //            })
 //        }
-})}
 
-}
 
 
