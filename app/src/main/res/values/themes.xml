@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.CoupleSync" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/romantic</item>
+        <item name="android:background">@color/gray</item>
+    </style>
+
+    <style name="Theme.CoupleSync" parent="Base.Theme.CoupleSync" />
+    <style name="Title" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:background">@color/romantic</item>
+        <item name="android:fontFamily">@font/nunito_sans_bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+</resources>
